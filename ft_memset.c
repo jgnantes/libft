@@ -47,9 +47,9 @@ int	main(void)
 	printf("  ft_memset: \"%s\"\n", str1);
 	printf("  memset:    \"%s\"\n", str2);
 	if (strcmp(str1, str2) == 0)
-		printf("  Result: ✅\n");
+		printf("  Result: OK\n");
 	else
-		printf("  Result: ❌\n");
+		printf("  Result: KO\n");
 
 	// 2. Fill with '\0' (zero fill)
 	ft_memset(str3 + 5, '\0', 3);
@@ -63,9 +63,9 @@ int	main(void)
 		printf("%d ", (unsigned char)str4[i]);
 	printf("\n");
 	if (memcmp(str3, str4, 15) == 0)
-		printf("  Result: ✅\n");
+		printf("  Result: OK\n");
 	else
-		printf("  Result: ❌\n");
+		printf("  Result: KO\n");
 
 	// 3. Fill entire string
 	ft_memset(str1, '#', sizeof(str1) - 1);
@@ -76,9 +76,9 @@ int	main(void)
 	printf("  ft_memset: \"%s\"\n", str1);
 	printf("  memset:    \"%s\"\n", str2);
 	if (strcmp(str1, str2) == 0)
-		printf("  Result: ✅\n");
+		printf("  Result: OK\n");
 	else
-		printf("  Result: ❌\n");
+		printf("  Result: KO\n");
 
 	// 4. Fill binary data
 	ft_memset(bin1, 255, sizeof(bin1));
@@ -101,11 +101,11 @@ int	main(void)
 		printf("%u ", bin2[i]);
 	printf("\n");
 	if (pass)
-		printf("  Result: ✅\n");
+		printf("  Result: OK\n");
 	else
-		printf("  Result: ❌\n");
+		printf("  Result: KO\n");
 
-	// ✅ 5. Zero length fill
+	// OK 5. Zero length fill
 	strcpy(str1, "Hello");
 	strcpy(str2, "Hello");
 	ft_memset(str1, 'A', 0);
@@ -113,7 +113,7 @@ int	main(void)
 	printf("\nTest 5: Zero length fill\n");
 	printf("  ft_memset: \"%s\"\n", str1);
 	printf("  memset:    \"%s\"\n", str2);
-	printf("  Result: ✅ (no change expected)\n");
+	printf("  Result: OK (no change expected)\n");
 
 	// 6. Fill with negative value
 	ft_memset(bin1, -1, 5);
@@ -136,9 +136,9 @@ int	main(void)
 		}
 	}
 	if (pass)
-		printf("  Result: ✅\n");
+		printf("  Result: OK\n");
 	else
-		printf("  Result: ❌\n");
+		printf("  Result: KO\n");
 
 	return (0);
 }*/
