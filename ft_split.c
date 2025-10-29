@@ -13,8 +13,8 @@
 #include "libft.h"
 
 static size_t	str_i_count(char const *str, char c, size_t *i);
-static char	*ft_strndup(char const *src, size_t n);
-static char	**free_array(char **arr, size_t i);
+static char		*ft_strndup(char const *src, size_t n);
+static char		**free_array(char **arr, size_t i);
 
 char	**ft_split(char const *s, char c)
 {
@@ -45,153 +45,152 @@ char	**ft_split(char const *s, char c)
 	return (split);
 }
 
-/*
-#include <stdio.h>
-int	main(void)
+/*#include <stdio.h>
+int main(void)
 {
-	char	**result;
-	int		i;
+    char **result;
+    int i;
 
-	printf("---- TESTE 1: string normal ----\n");
-	result = ft_split("um dois tres", ' ');
-	i = 0;
-	if (result)
-	{
-		while (result[i])
-		{
-			printf("[%s]\n", result[i]);
-			free(result[i]);
-			i++;
-		}
-		free(result);
-	}
-	else
-		printf("retornou NULL\n");
+    printf("Test 1: Normal string\n");
+    result = ft_split("one two three", ' ');
+    i = 0;
+    if (result)
+    {
+        while (result[i])
+        {
+            printf("[%s]\n", result[i]);
+            free(result[i]);
+            i++;
+        }
+        free(result);
+    }
+    else
+        printf("Returned NULL\n");
 
-	printf("\n---- TESTE 2: delimitadores múltiplos ----\n");
-	result = ft_split("   um  dois   tres   ", ' ');
-	i = 0;
-	if (result)
-	{
-		while (result[i])
-		{
-			printf("[%s]\n", result[i]);
-			free(result[i]);
-			i++;
-		}
-		free(result);
-	}
-	else
-		printf("retornou NULL\n");
+    printf("\nTest 2: Multiple delimiters\n");
+    result = ft_split("   one  two   three   ", ' ');
+    i = 0;
+    if (result)
+    {
+        while (result[i])
+        {
+            printf("[%s]\n", result[i]);
+            free(result[i]);
+            i++;
+        }
+        free(result);
+    }
+    else
+        printf("Returned NULL\n");
 
-	printf("\n---- TESTE 3: string vazia ----\n");
-	result = ft_split("", ' ');
-	if (!result)
-		printf("retornou NULL\n");
-	else
-	{
-		printf("(array vazio)\n");
-		free(result);
-	}
+    printf("\nTest 3: Empty string\n");
+    result = ft_split("", ' ');
+    if (!result)
+        printf("Returned NULL\n");
+    else
+    {
+        printf("(empty array)\n");
+        free(result);
+    }
 
-	printf("\n---- TESTE 4: apenas delimitadores ----\n");
-	result = ft_split("     ", ' ');
-	if (!result)
-		printf("retornou NULL\n");
-	else
-	{
-		printf("(array vazio)\n");
-		free(result);
-	}
+    printf("\nTest 4: Delimiters only\n");
+    result = ft_split("     ", ' ');
+    if (!result)
+        printf("Returned NULL\n");
+    else
+    {
+        printf("(empty array)\n");
+        free(result);
+    }
 
-	printf("\n---- TESTE 5: delimitador inexistente ----\n");
-	result = ft_split("palavraunica", ' ');
-	i = 0;
-	if (result)
-	{
-		while (result[i])
-		{
-			printf("[%s]\n", result[i]);
-			free(result[i]);
-			i++;
-		}
-		free(result);
-	}
-	else
-		printf("retornou NULL\n");
+    printf("\nTest 5: No delimiters\n");
+    result = ft_split("singleword", ' ');
+    i = 0;
+    if (result)
+    {
+        while (result[i])
+        {
+            printf("[%s]\n", result[i]);
+            free(result[i]);
+            i++;
+        }
+        free(result);
+    }
+    else
+        printf("Returned NULL\n");
 
-	printf("\n---- TESTE 6: string NULL ----\n");
-	result = ft_split(NULL, ' ');
-	if (!result)
-		printf("retornou NULL (correto)\n");
-	else
-		printf("ERRO: deveria retornar NULL\n");
+    printf("\nTest 6: NULL string\n");
+    result = ft_split(NULL, ' ');
+    if (!result)
+        printf("Returned NULL (correct)\n");
+    else
+        printf("ERROR: Should return NULL\n");
 
-	printf("\n---- TESTE 7: delimitador é '\\0' ----\n");
-	result = ft_split("abc", '\0');
-	i = 0;
-	if (result)
-	{
-		while (result[i])
-		{
-			printf("[%s]\n", result[i]);
-			free(result[i]);
-			i++;
-		}
-		free(result);
-	}
-	else
-		printf("retornou NULL\n");
+    printf("\nTest 7: '\\0' as delimiter\n");
+    result = ft_split("abc", '\0');
+    i = 0;
+    if (result)
+    {
+        while (result[i])
+        {
+            printf("[%s]\n", result[i]);
+            free(result[i]);
+            i++;
+        }
+        free(result);
+    }
+    else
+        printf("Returned NULL\n");
 
-	printf("\n---- TESTE 8: delimitador no início ----\n");
-	result = ft_split(" teste", ' ');
-	i = 0;
-	if (result)
-	{
-		while (result[i])
-		{
-			printf("[%s]\n", result[i]);
-			free(result[i]);
-			i++;
-		}
-		free(result);
-	}
-	else
-		printf("retornou NULL\n");
+    printf("\nTest 8: Delimiter at the beginning\n");
+    result = ft_split(" test", ' ');
+    i = 0;
+    if (result)
+    {
+        while (result[i])
+        {
+            printf("[%s]\n", result[i]);
+            free(result[i]);
+            i++;
+        }
+        free(result);
+    }
+    else
+        printf("Returned NULL\n");
 
-	printf("\n---- TESTE 9: delimitador no fim ----\n");
-	result = ft_split("finalmente ", ' ');
-	i = 0;
-	if (result)
-	{
-		while (result[i])
-		{
-			printf("[%s]\n", result[i]);
-			free(result[i]);
-			i++;
-		}
-		free(result);
-	}
-	else
-		printf("retornou NULL\n");
+    printf("\nTest 9: Delimiter at the end\n");
+    result = ft_split("finally ", ' ');
+    i = 0;
+    if (result)
+    {
+        while (result[i])
+        {
+            printf("[%s]\n", result[i]);
+            free(result[i]);
+            i++;
+        }
+        free(result);
+    }
+    else
+        printf("Returned NULL\n");
 
-	printf("\n---- TESTE 10: delimitador repetido ----\n");
-	result = ft_split("a,b,,c", ',');
-	i = 0;
-	if (result)
-	{
-		while (result[i])
-		{
-			printf("[%s]\n", result[i]);
-			free(result[i]);
-			i++;
-		}
-		free(result);
-	}
-	else
-		printf("retornou NULL\n");
+    printf("\nTest 10: Repeated delimiter\n");
+    result = ft_split("a,b,,c", ',');
+    i = 0;
+    if (result)
+    {
+        while (result[i])
+        {
+            printf("[%s]\n", result[i]);
+            free(result[i]);
+            i++;
+        }
+        free(result);
+    }
+    else
+        printf("Returned NULL\n");
 
-	return (0);
+    return 0;
 }*/
 
 static size_t	str_i_count(char const *str, char c, size_t *i)

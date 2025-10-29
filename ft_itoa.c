@@ -43,20 +43,58 @@ char	*ft_itoa(int n)
 	result[i] = '\0';
 	return (result);
 }
-/*#include <limits.h> 
-#include <stdio.h> 
-int main() 
-{ 
-	char* test1 = ft_itoa (5); 
-	char* test2 = ft_itoa (123456); 
-	char* test3 = ft_itoa (-42); 
-	char* test4 = ft_itoa (0); 
-	char* test5 = ft_itoa (INT_MAX); 
-	char* test6 = ft_itoa (INT_MIN); 
 
-	printf("RESULTADO: %s\n", test1); printf("RESULTADO: %s\n", test2); 
-	printf("RESULTADO: %s\n", test3); printf("RESULTADO: %s\n", test4); 
-	printf("RESULTADO: %s\n", test5); printf("RESULTADO: %s\n", test6); 
+/*#include <stdio.h>
+int	main(void)
+{
+	char	*str;
+
+	// 1. Zero
+	str = ft_itoa(0);
+	printf("Test 1 (0): '%s'\n", str);
+	free(str);
+
+	// 2. Small positive number
+	str = ft_itoa(42);
+	printf("Test 2 (42): '%s'\n", str);
+	free(str);
+
+	// 3. Small negative number
+	str = ft_itoa(-42);
+	printf("Test 3 (-42): '%s'\n", str);
+	free(str);
+
+	// 4. Multi-digit positive number
+	str = ft_itoa(123456789);
+	printf("Test 4 (123456789): '%s'\n", str);
+	free(str);
+
+	// 5. Multi-digit negative number
+	str = ft_itoa(-987654321);
+	printf("Test 5 (-987654321): '%s'\n", str);
+	free(str);
+
+	// 6. INT_MAX
+	str = ft_itoa(INT_MAX);
+	printf("Test 6: '%s'\n", INT_MAX, str);
+	free(str);
+
+	// 7. INT_MIN
+	str = ft_itoa(INT_MIN);
+	printf("Test 7: '%s'\n", INT_MIN, str);
+	free(str);
+
+	// 8. Single-digit negative number
+	str = ft_itoa(-7);
+	printf("Test 8 (-7): '%s'\n", str);
+	free(str);
+
+	// 9. Large but valid positive number
+	str = ft_itoa(1000000000);
+	printf("Test 9 (1000000000): '%s'\n", str);
+	free(str);
+
+	return (0);
 }*/
 
 static void	check_neg(long *n, int *is_neg, int *i)

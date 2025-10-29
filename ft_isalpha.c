@@ -20,21 +20,20 @@ int	ft_isalpha(int c)
 		return (0);
 }
 
-/*
-#include <stdio.h>
-#include <ctype.h>
+/*#include <stdio.h>
 int main(void)
 {
-	int c;
-
-	c = ft_isalpha(65);
-	printf("ft:%d\n", c);
-	c = isalpha(65);
-	printf("or:%d\n", c);
+	char c;
 	
-	c = ft_isalpha(1);
-	printf("ft:%d\n", c);
-	c = isalpha(1);
-	printf("or:%d\n", c);
-}
-*/
+	c = '9';
+	printf("9:   %d\n", ft_isalpha(c));
+	
+	c = 'R';
+	printf("R:   %d\n", ft_isalpha(c));
+	
+	c = '\t';
+	printf("tab: %d\n", ft_isalpha(c));
+	
+	c = '0';
+	printf("0:   %d\n", ft_isalpha(c));
+}*/

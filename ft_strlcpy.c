@@ -31,8 +31,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	return (src_len);
 }
 
-/*
-#include <stdio.h>
+/*#include <stdio.h>
 #include <string.h>
 int	main()
 {
@@ -46,5 +45,4 @@ int	main()
 	//printf("%d\n", size2);
 	
 	return 0;
-}
-*/
+}*/

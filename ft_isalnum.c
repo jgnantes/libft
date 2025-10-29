@@ -21,3 +21,21 @@ int	ft_isalnum(int c)
 	else
 		return (0);
 }
+
+/*#include <stdio.h>
+int main(void)
+{
+	char c;
+	
+	c = '9';
+	printf("9:   %d\n", ft_isalnum(c));
+	
+	c = 'R';
+	printf("R:   %d\n", ft_isalnum(c));
+	
+	c = '\t';
+	printf("tab: %d\n", ft_isalnum(c));
+	
+	c = '0';
+	printf("0:   %d\n", ft_isalnum(c));
+}*/

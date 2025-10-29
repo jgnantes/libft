@@ -19,3 +19,21 @@ int	ft_isprint(int c)
 	else
 		return (0);
 }
+
+/*#include <stdio.h>
+int main(void)
+{
+	char c;
+	
+	c = '9';
+	printf("9:   %d\n", ft_isprint(c));
+	
+	c = 'R';
+	printf("R:   %d\n", ft_isprint(c));
+	
+	c = '\t';
+	printf("tab: %d\n", ft_isprint(c));
+	
+	c = '0';
+	printf("0:   %d\n", ft_isprint(c));
+}*/

@@ -21,6 +21,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*trim;
 	size_t	trim_len;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = 0;
 	j = ft_strlen(s1);
 	while (s1[i] && check_char(set, s1[i]))
@@ -36,6 +38,66 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trim[trim_len] = '\0';
 	return (trim);
 }
+
+/*#include <stdio.h>
+int	main(void)
+{
+	char	*result;
+
+	result = ft_strtrim("  \tHello World\n  ", " \t\n");
+	printf("Teste 1: '%s'\n", result);
+	free(result);
+
+	result = ft_strtrim("Hello", " \t\n");
+	printf("Teste 2: '%s'\n", result);
+	free(result);
+
+	result = ft_strtrim("   \n\t  ", " \n\t");
+	printf("Teste 3: '%s'\n", result);
+	free(result);
+
+	result = ft_strtrim("  abc", " ");
+	printf("Teste 4: '%s'\n", result);
+	free(result);
+
+	result = ft_strtrim("xyz   ", " ");
+	printf("Teste 5: '%s'\n", result);
+	free(result);
+
+	result = ft_strtrim("", "");
+	printf("Teste 6: '%s'\n", result);
+	free(result);
+
+	result = ft_strtrim("  abc  ", "");
+	printf("Teste 7: '%s'\n", result);
+	free(result);
+
+	result = ft_strtrim("xxxtrimmedxxx", "x");
+	printf("Teste 8: '%s'\n", result);
+	free(result);
+
+	printf("Teste 9a (s1 = NULL): ");
+	result = ft_strtrim(NULL, " ");
+	if (!result)
+		printf("NULL retornado (correto)\n");
+	else
+	{
+		printf("'%s'\n", result);
+		free(result);
+	}
+
+	printf("Teste 9b (set = NULL): ");
+	result = ft_strtrim("abc", NULL);
+	if (!result)
+		printf("NULL retornado (correto)\n");
+	else
+	{
+		printf("'%s'\n", result);
+		free(result);
+	}
+
+	return (0);
+}*/
 
 static int	check_char(const char *set, char c)
 {

@@ -29,18 +29,50 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
-/*
-#include <string.h>
-#include <stdio.h>
-int	main(void)
+/*#include <stdio.h>
+int main(void)
 {
-	char *string1 = "solta o ponto moulinette";
-	char *string2 = "solta o ponto moulinette";
-	
-	printf("%s\n", ft_strdup(string1));
-	printf("%s\n", strdup(string2));
-}
-*/
+    char *original1 = "Hello, world!";
+    char *original2 = "";
+    char *original3 = "SingleWord";
+    char *original4 = NULL;
+
+    char *copy;
+
+    // Test 1: Normal string
+    copy = ft_strdup(original1);
+    printf("Test 1: Normal string\n");
+    printf("  Original: \"%s\"\n", original1);
+    printf("  ft_strdup: \"%s\"\n", copy);
+    free(copy);
+
+    // Test 2: Empty string
+    copy = ft_strdup(original2);
+    printf("\nTest 2: Empty string\n");
+    printf("  Original: \"%s\"\n", original2);
+    printf("  ft_strdup: \"%s\"\n", copy);
+    free(copy);
+
+    // Test 3: Single word
+    copy = ft_strdup(original3);
+    printf("\nTest 3: Single word\n");
+    printf("  Original: \"%s\"\n", original3);
+    printf("  ft_strdup: \"%s\"\n", copy);
+    free(copy);
+
+    // Test 4: NULL string
+    copy = ft_strdup(original4);
+    printf("\nTest 4: NULL string\n");
+    if (!copy)
+        printf("  ft_strdup returned NULL (correct)\n");
+    else
+    {
+        printf("  ft_strdup: \"%s\" (ERROR)\n", copy);
+        free(copy);
+    }
+
+    return 0;
+}*/
 
 static char	*ft_strcpy(char *dest, const char *src)
 {
