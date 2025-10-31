@@ -1,4 +1,5 @@
 NAME = libft.a
+SRCS = .
 
 all:
 	cc -Wall -Wextra -Werror -c ft_*.c
@@ -11,7 +12,7 @@ fclean:
 	rm -f *.o libft.a
 
 bonus:
-	cc -Wall -Wextra -Werror -c ft_*.c
+	cc -Wall -Wextra -Werror -c ft_*_bonus.c
 	ar rcs $(NAME) ft_*_bonus.o
 
 re:
